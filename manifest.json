@@ -1,15 +1,15 @@
 {
-    "name": "My YT Bookmarks",
-    "version": "0.1.0",
-    "description": "Saving timestamps in YT videos",
+    "name": "Spam Warden",
+    "version": "1.0.0",
+    "description": "Proof of Concept Spam Detection Filter",
     "permissions": ["storage", "tabs"],
-    "host_permissions": ["https://*.youtube.com/*"],
+    "host_permissions": ["https://*.gmail.com/*"],
     "background": {
       "service_worker": "background.js"
     },
     "content_scripts": [
       {
-        "matches": ["https://*.youtube.com/*"],
+        "matches": ["https://*.gmail.com/*"],
         "js": ["contentScript.js"]
       }
     ],
