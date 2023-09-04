@@ -1,37 +1,17 @@
-{
-    "name": "Spam Warden",
-    "version": "1.0.0",
-    "description": "Proof of Concept Spam Detection Filter",
-    "permissions": ["storage", "tabs"],
-    "host_permissions": ["https://*.gmail.com/*"],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["https://*.gmail.com/*"],
-        "js": ["contentScript.js"]
-      }
-    ],
-    "web_accessible_resources": [
-      {
-        "resources": [
-          "assets/bookmark.png",
-          "assets/play.png",
-          "assets/delete.png",
-          "assets/save.png"
-        ],
-        "matches": ["https://*.youtube.com/*"]
-      }
-    ],
-    "action": {
-      "default_icon": {
-        "16": "assets/ext-icon.png",
-        "24": "assets/ext-icon.png",
-        "32": "assets/ext-icon.png"
-      },
-      "default_title": "My YT Bookmarks",
-      "default_popup": "popup.html"
-    },
-    "manifest_version": 3
+﻿{
+  "name": "SpamWarden Chrome Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "A simple and easy to use spam prediction chrome extension for your favorite messaging apps",
+  "permissions": [
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "32": "assets/16.png",
+    "64": "assets/48.png",
+    "128": "assets/128.png"
+  }
 }

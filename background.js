@@ -1,12 +1,14 @@
-chrome.tabs.onUpdated.addListener((tabId, tab) => {
-    if (tab.url && tab.url.includes("youtube.com/watch")) {
-      const queryParameters = tab.url.split("?")[1];
-      const urlParameters = new URLSearchParams(queryParameters);
-  
-      chrome.tabs.sendMessage(tabId, {
-        type: "NEW",
-        videoId: urlParameters.get("v"),
-      });
-    }
+﻿chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: "SpamWarden",
+    title: "Spam check for \"%s\"",
+    type: "normal",
+    contexts: ["selection"]
   });
-  
+});
+
+chrome.contextMenus.onClicked.addListener((info) => {
+  chrome.tabs.create({
+    url: "http://twitter.com/search?q=" + encodeURIComponent(info.selectionText)
+  });
+});
